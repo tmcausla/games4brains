@@ -33,6 +33,9 @@ def generate_page(from_path, template_path, dest_path, basepath):
     print(f"Generating a path from {from_path} to {dest_path} using {template_path}")
     with open(from_path) as md_file:
         markdown = md_file.read()
+        if not markdown.strip():
+            print(f"Skipping empty file: {from_path}")
+            return
     with open(template_path) as template_file:
         template = template_file.read()
 
