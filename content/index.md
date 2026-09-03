@@ -9,11 +9,22 @@
 - [Markdown Static Site Generator](/projects/static-site-generator)
 - [RESTful API Service](/projects/restful-api)
 - [AI Filesystem Assistant](/projects/ai-file-agent)
-- [Unity games](/projects/unity-games)
+- [Unity Games](/projects/unity-games)
 
-## Ludology
 
-I don't _just_ like games.  I like to learn and understand the **math, science, and sociology** that surrounds them.
+> We choose to go to the Moon
+> in this decade and do the other things
+> not because they are easy, but because they are hard;
+> because that goal will serve to organize and measure 
+> the best of our energies and skills
+> because that challenge is one that we are willing to accept, 
+> one we are unwilling to postpone, and one we intend to win.
+> - John F. Kennedy
+
+
+## Ludology Articles
+
+I don't _just like_ games.  I like to learn and understand the **math, science, and sociology** that surrounds them.
 
 - [The Prisoner's Dilemma](/ludology/prisoner-dilemma)
 - [The Monty Hall Problem](/ludology/monty-hall)
