@@ -6,15 +6,15 @@ I present to you 10 games that have narratives I fell in love with.  Oh and with
 
 ## Tales of Symphonia
 
-{{ img of ToS }}
+![Tales of Symphonia](/images/game-covers/tales-symphonia.jpg)
 
 I sincerely believe every gamer has a beloved JRPG from their tween years that they latch onto hard and carry it with them for life.  For a lot of people my age that would have Final Fantasy 7, maybe 9 or 10.  It could have been whatever DragonQuest was released during that time.  For me it was Tales of Symphonia.
 
 {{ brief synopsis of narrative events }}
 
-## Assassin's Creed 2
+## Assassin's Creed II
 
-{{ img of AC2 }}
+![Assassin's Creed II](/images/game-covers/assassins-creed2.jpg)
 
 This is back when Ubisoft's newest IP had the most potential.  A Renaissance era tale of avenging one's family and discovering rival secret societies ran parallel those same rivals performing corporate espionage in a future timeline.  And then they decided the future timeline didn't matter anymore after they reduced the Animus to historical research for game development...oh what could have been.
 
@@ -22,7 +22,7 @@ This is back when Ubisoft's newest IP had the most potential.  A Renaissance era
 
 ## Control
 
-{{ img of Control }}
+![Control](/images/game-covers/control.jpg)
 
 This hit hard mostly because I'm a fan of SCP stories.
 
@@ -30,15 +30,15 @@ This hit hard mostly because I'm a fan of SCP stories.
 
 ## Detroit Become Human
 
-{{ img of Detroit Become Human }}
+![Detroit Become Human](/images/game-covers/detroit-become-human.jpg)
 
 Great character arcs that are presented through beautifully animated cut scenes.  Although I don't think the argument would carry much weight if they didn't look so human in the first place.
 
 {{ brief synopsis of narrative events }}
 
-## God of War (2016)
+## God of War (2018)
 
-{{ img of daddy Kratos }}
+![God of War 2018](/images/game-covers/god-of-war.jpg)
 
 Kratos attempts to shed his ultra-violent conflict resolution style but can't seem to avoid unwanted house guests.  Big turning point for the series and Ragnorok explores themes of fatherhood that almost make me wanna be a better dad.
 
@@ -46,7 +46,7 @@ Kratos attempts to shed his ultra-violent conflict resolution style but can't se
 
 ## Call of Cthulhu
 
-{{ img of Call of Cthulhu }}
+![Call of Cthulhu](/images/game-covers/call-of-cthulhu.jpg)
 
 I really just like stories about eldritch horrors, and this game approached it with an interesting RPG approach.  Just wish my rolls didn't suck.
 

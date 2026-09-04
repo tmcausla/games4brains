@@ -8,55 +8,55 @@ I present to you 10 games that are exceptionally good card games or use cards in
 
 ## Slay the Spire
 
-{{ img of Slay the Spire }}
+![Slay the Spire](/images/game-covers/slay-the-spire.jpg)
 
 Arguably the best deckbuilding game of all time, excited for the sequel.
 
 ## Inscryption
 
-{{ img of Inscryption }}
+![Inscryption](/images/game-covers/inscryption.jpg)
 
 One of my favourites, it's the game within a game that becomes 3 different games and then gains sentience and self-deletes.  
 
 ## Balatro
 
-{{ img of Balatro }}
+![Balatro](/images/game-covers/balatro.jpg)
 
 Solid deckbuilder game design, poker is easily recognizable and number go **biiiiig**.
 
 ## Baten Kaitos
 
-{{ img of Baten Kaitos }}
+![Baten Kaitos](/images/game-covers/baten-kaitos.jpg)
 
 The cards combo together and age, quick-paced combat.  Comes with a good JRPG story.
 
 ## Monster Train
 
-{{ img of Monster Train }}
+![Monster Train](/images/game-covers/monster-train.jpg)
 
 Takes the smash deck approach to deckbuilding and includes a light tower defense element.
 
 ## Card Shark
 
-{{ img of Card Shark }}
+![Card Shark](/images/game-covers/card-shark.png)
 
 You have to manipulate positions of cards using quick memorization and slight of hand to cheat and progress in the story.
 
 ## Mega Man Battle Network
 
-{{ img of MMBN }}
+![Mega Man Battle Netowrk](/images/game-covers/megaman-battle-network.jpg)
 
 Cards (battle chips)  your loadout for a 'round' of real time combat, combotastic.
 
 ## Power Chord
 
-{{ img of Power Chord }}
+![Power Chord](/images/game-covers/power-chord.jpg)
 
 Party based deckbuilder, and I'm a sucker for heavy metal.
 
-## Death Race: Tournament
+## Death Roads: Tournament
 
-{{ img of Death Race }}
+![Death Roads Tournament](/images/game-covers/death-roads.jpg)
 
 Deck is populated by cards attached to the parts you pick out for your car.  Kind of another deckbuilding roguelite but I like execution of the theme.
 
