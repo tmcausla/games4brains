@@ -1,4 +1,4 @@
-# Games4Brains
+# Games 4 Brains
 
 ![Games4Brains logo](/images/games4brains-logo.png)
 

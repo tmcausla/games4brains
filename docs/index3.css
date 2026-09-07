@@ -1,0 +1,228 @@
+:root{
+  --navy: #264656;
+  --navy-deep: #16262E;
+  --teal-slate: #669CA8;
+  --teal-bright: #61C5D0;
+  --terracotta: #D9714E;
+  --bg: #F7FAFB;
+  --card-bg: #E9F1F3;
+  --ink: #1A2B33;
+  --ink-soft: #4A626C;
+  --line: #C9DCE1;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Source Serif 4', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);   /* serif for long-form reading; headings/nav stay on Space Grotesk below */
+  line-height: 1.7;
+  margin: 0;
+}
+
+b {
+  font-weight: 700;   /* 900 isn't one of the weights loaded for Space Grotesk, so it was falling back anyway */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5em; }
+h2 {
+  font-size: 1.8em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--line);   /* you've got a lot of h2 sections stacked on this page — a rule under each helps separate them */
+}
+h3 { font-size: 1.4em; }
+h4, h5, h6 { font-size: 1.2em; }
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--teal-slate);
+  text-underline-offset: 3px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+
+a:hover {
+  color: var(--teal-bright);
+  text-decoration-color: var(--teal-bright);
+}
+
+ul,
+ol {
+  padding-left: 30px;
+}
+
+code {
+  background-color: var(--navy-deep);
+  border-radius: 6px;
+  color: var(--teal-bright);
+  font-family: var(--font-mono);
+  padding: 0.3em 0.5em;
+}
+
+pre code {
+  padding: 0;
+}
+
+pre {
+  background-color: var(--navy-deep);
+  border-radius: 6px;
+  padding: 1em;
+  overflow: auto;
+}
+
+blockquote {
+  border-left: 3px solid var(--teal-bright);
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-left: 0;
+  padding: 0.4em 0 0.4em 1.4em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 462px;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto 1em;
+}
+
+/* Applying the same treatment to <article> as .wrap keeps the nav/footer and
+   article content edges aligned — previously body's own max-width (800px)
+   and .wrap's (720px) were both in play and didn't line up. */
+article, .wrap, .container, main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+article {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+header {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.navrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-display);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  position: relative;
+  color: var(--navy);
+  padding-bottom: 4px;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--teal-bright);
+  transition: width .2s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a, footer a, .no-underline {
+  text-decoration: none;
+}
+
+footer {
+  background: var(--navy-deep);
+  color: #C9DCE1;
+  padding: 56px 0;
+  margin-top: 2em;
+}
+footer h3 {
+  color: #fff;
+}
+footer a {
+  color: #C9DCE1;
+}
+footer a:hover {
+  color: var(--teal-bright);
+}
+
+.foot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.foot-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* the rest can stay for now */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1c25;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3c3c42;
+  border-radius: 6px;
+  border: 3px solid #1f1c25;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5466;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3c3c42 #1f1c25;
+}
+
+::-webkit-scrollbar-corner {
+  background: #1f1c25;
+}

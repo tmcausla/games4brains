@@ -2,7 +2,9 @@
 
 [< Back Home](/)
 
-I did a thing because I was told it would look good for a back end engineer.
+I built this project to give myself hands-on experience designing and consuming a REST API from both sides of the application.
+
+The backend provides CRUD operations for a simple pet-management service, while a React client consumes the API and manages the resulting application state.
 
 ## Tech Stack
 
@@ -10,18 +12,76 @@ I did a thing because I was told it would look good for a back end engineer.
 - Node.js
 - Express
 - React
-- GitHub
+- Git / GitHub
+- Supertest
+- OpenAPI / Swagger
 
-## Skills Demonstrated
+## How It Works
 
-1. Talk about controllers and routes and data layers
-2. Talk about Supertest integration for validation
-3. Something else who knows
+The backend is organized into a series of layers, with each one being responsible for a specific job within the application.
 
-## Time For Screenshots
+```
+React Client
+    |
+    v
+REST API
+    |
+    v
+Routes
+    |
+    v
+Controllers
+    |
+    v
+Data Access
+```
 
-{{ Oh isn't this just lovely }}
+The Express application exposes endpoints for creating, reading, updating, and deleting pets' profiles.  
 
-{{ Quite nice, really }}
+1. Routes determine endpoint has been requested
+2. Controllers handle the HTTP request and response
+3. Data access layer handles the underlying pet data
+
+This separation keeps the individual pieces small and makes the application easier to understand and modify.
+
+## REST API
+
+The API provides the standard CRUD operations:
+
+- **GET /pets** - retrieve all pets
+- **GET /pets/:id** - retrieve a specific pet
+- **POST /pets** - create a new pet
+- **PUT /pets/:id** - update an existing pet
+- **DELETE /pets/:id** - delete a pet
+
+The API is also documented using OpenAPI/Swagger, so the available endpoints and request formats can be explored without having to dig through the source code.
+
+## Testing
+
+I used Supertest to write integration tests against the Express application.
+
+The tests exercise the API through its HTTP endpoints rather than testing each function in isolation.  This allowed me to verify both the returned HTTP status codes and the data returned by the API.
+
+{{ img of tests }}
+
+The CRUD workflow is tested as a complete sequence, including creating and modifying records and then verifying that they can subsequently be removed.  
+
+## React Client
+
+The project also includes a React client that consumes the API.
+
+{{ img of React client }}
+
+This gave me an opportunity to with the API as an actual client rather than treeating the backend as an isolated exercise.  The client is responsible for making requests to the API and managing the resulting application state.  
+
+Building both sides of the application also made the relationship between an API's interface and the software consuming it much more apparent.
+
+## API Documentation
+
+The project includes an interactive Swagger interface generated from the API's OpenAPI's specification.  
+
+![Swagger documentation showing five CRUD endpoints](/images/api-overview.png) 
+
+![GET /pets JSON response](/images/api-get-endpoint.png)
 
 [< Back Home](/)

@@ -5,12 +5,60 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RESTful API & React Client</title>
-  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link href="/index2.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <article><div><h1>RESTful API & React Client</h1><p><a href="/games4brains/">< Back Home</a></p><p>I did a thing because I was told it would look good for a back end engineer.</p><h2>Tech Stack</h2><ul><li>JavaScript</li><li>Node.js</li><li>Express</li><li>React</li><li>GitHub</li></ul><h2>Skills Demonstrated</h2><ol><li>Talk about controllers and routes and data layers</li><li>Talk about Supertest integration for validation</li><li>Something else who knows</li></ol><h2>Time For Screenshots</h2><p>{{ Oh isn't this just lovely }}</p><p>{{ Quite nice, really }}</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+  <div class="wrap">
+    <header>
+      <div class="navrow">
+        <div class="brand"> <!-- navbar logo & brand, we can play around with what goes here -->
+          <!-- maybe a small brand image, who knows we'll see -->
+          Games 4 Brains
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <article><div><h1>RESTful API & React Client</h1><p><a href="/">< Back Home</a></p><p>I built this project to give myself hands-on experience designing and consuming a REST API from both sides of the application.</p><p>The backend provides CRUD operations for a simple pet-management service, while a React client consumes the API and manages the resulting application state.</p><h2>Tech Stack</h2><ul><li>JavaScript</li><li>Node.js</li><li>Express</li><li>React</li><li>Git / GitHub</li><li>Supertest</li><li>OpenAPI / Swagger</li></ul><h2>How It Works</h2><p>The backend is organized into a series of layers, with each one being responsible for a specific job within the application.</p><pre><code>React Client
+    |
+    v
+REST API
+    |
+    v
+Routes
+    |
+    v
+Controllers
+    |
+    v
+Data Access
+</code></pre><p>The Express application exposes endpoints for creating, reading, updating, and deleting pets' profiles.</p><ol><li>Routes determine endpoint has been requested</li><li>Controllers handle the HTTP request and response</li><li>Data access layer handles the underlying pet data</li></ol><p>This separation keeps the individual pieces small and makes the application easier to understand and modify.</p><h2>REST API</h2><p>The API provides the standard CRUD operations:</p><ul><li><b>GET /pets</b> - retrieve all pets</li><li><b>GET /pets/:id</b> - retrieve a specific pet</li><li><b>POST /pets</b> - create a new pet</li><li><b>PUT /pets/:id</b> - update an existing pet</li><li><b>DELETE /pets/:id</b> - delete a pet</li></ul><p>The API is also documented using OpenAPI/Swagger, so the available endpoints and request formats can be explored without having to dig through the source code.</p><h2>Testing</h2><p>I used Supertest to write integration tests against the Express application.</p><p>The tests exercise the API through its HTTP endpoints rather than testing each function in isolation.  This allowed me to verify both the returned HTTP status codes and the data returned by the API.</p><p>{{ img of tests }}</p><p>The CRUD workflow is tested as a complete sequence, including creating and modifying records and then verifying that they can subsequently be removed.</p><h2>React Client</h2><p>The project also includes a React client that consumes the API.</p><p>{{ img of React client }}</p><p>This gave me an opportunity to with the API as an actual client rather than treeating the backend as an isolated exercise.  The client is responsible for making requests to the API and managing the resulting application state.</p><p>Building both sides of the application also made the relationship between an API's interface and the software consuming it much more apparent.</p><h2>API Documentation</h2><p>The project includes an interactive Swagger interface generated from the API's OpenAPI's specification.</p><p><img src="/images/api-overview.png" alt="Swagger documentation showing five CRUD endpoints" /></p><p><img src="/images/api-get-endpoint.png" alt="GET /pets JSON response" /></p><p><a href="/">< Back Home</a></p></div></article>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <h3>Let's build something that lights up your brain.</h3>
+        <div class="foot-links">
+          <a href="#">Email</a>
+          <a href="https://github.com/tmcausla" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taylor-mcausland/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 

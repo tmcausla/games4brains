@@ -1,7 +1,7 @@
 body {
-  background-color: #f7fafb;    /* change background to white */
-  color: #264656;   /* change primary text colour */
-  font-family: "Luminari", "Georgia", serif;    /* experiment with the fonts LINK TO FONT FAM IN TEMPLATE.HTML */
+  background-color: #f7fafb;    
+  color: #264656;   
+  font-family: 'Space Grotesk', sans-serif;    /* experiment with the fonts LINK TO FONT FAM IN TEMPLATE.HTML */
   line-height: 1.7;     /* keep the rest for now */
   margin: 0;
   padding: 20px;
@@ -20,10 +20,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: #669ca8;   /* dark teal, or medium tone with dark shadow */
+  color: #264656;   /* dark teal, or medium tone with dark shadow */
+  font-family: "Luminari", "Georgia", serif;
   margin-top: 24px;
   margin-bottom: 16px;
-  /*text-shadow: 2px 2px 4px #264656;    /* shadow colour, use dark teal if medium tone is chosen */
 }
 
 h1 {
@@ -46,6 +46,7 @@ h6 {
 
 a {
   color: #d9714e;   /* coral complement might be good for my links */
+  font-size: 1.1em;
   text-decoration: none;
   border-bottom: 2px solid #d9714e;
 }
@@ -65,7 +66,6 @@ code {
   border-radius: 6px;
   color: #e9c46a;
   padding: 0.4em 0.6em;
-  font-family: "Courier New", monospace;
 }
 
 pre code {
@@ -90,14 +90,77 @@ blockquote {
   padding-right: 0.5em;
   color: #ddd;
   font-style: italic;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-img {       /* resize the g4b logo, and find a way to thumbnailify the game covers on the top10 lists */
-  max-width: 100%;
+img {       /* resize the g4b logo */
+  width: 100%;
+  max-width: 462px;
   height: auto;
+  object-fit: cover;
   /*border-radius: 6px;
   border: 3px solid #3c3c42;
   box-shadow: 3px 3px 6px #000;*/
+}
+
+.navrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-display);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  position: relative;
+  color: var(--navy);
+  padding-bottom: 4px;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--teal-bright);
+  transition: width .2s ease;
+}
+
+nav a, footer a, .no-underline {
+  text-decoration: none;
+}
+
+.wrap, .container, main {
+  max-width: 720px;   /* article column width — keeps line length readable */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+footer {
+  background: #264656;
+  color: #C9DCE1;
+  padding: 56px 0;
+  margin-top: 4em;
+}
+footer h3 { 
+  color: #fff; 
 }
 
 
