@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Filesystem Assistant</title>
-  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link href="/index2.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,48 +16,39 @@
   <div class="wrap">
     <header>
       <div class="navrow">
-        <div class="brand"> <!-- navbar logo & brand, we can play around with what goes here -->
-          <!-- maybe a small brand image, who knows we'll see -->
-          Games 4 Brains
-        </div>
         <nav>
           <ul>
             <li><a href="#work">Work</a></li>
             <li><a href="#writing">Writing</a></li>
-            <li><a href="/games4brains/about">About</a></li>
-            <li><a href="/games4brains/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
   </div>
 
-  <article><div><h1>AI Filesystem Assistant</h1><p><a href="/games4brains/">< Back Home</a></p><p>I wanted to understand what actually happens when an AI model can do more than just generate text.</p><p>I built a command-line AI assistant that can inspect files, modify them, and execute Python programs using tools exposed through the Gemini API.</p><p>The important part wasn't just giving the model access to these capabilities, it was making sure these capabilities were <b>controlled</b>.</p><h2>Tech Stack</h2><ul><li>Python</li><li>Google Gemini API</li><li>Function / tool calling</li><li>Linux</li><li>Git / GitHub</li></ul><h2>How It Works</h2><p>The assistant uses an iterative tool-calling loop.</p><p>The user provides a request which is sent to Gemini along with a set of available tools.  If Gemini decides that it eneds to perform an operation, the application executes the requested function and sends the result back to the model.</p><p>The process continues until the model can provide a <i>final</i> response.</p><pre><code>User Request
-    |
-    v
-Gemini API
-    |
-    v
-Tool Call?
-  /       \
- No       No
- |         |
- v         v
-Validate   Response
- |
- v
-Execute tool
- |
- v
-Tool result
- |
- +------> Gemini API
-</code></pre><h2>Tool Registry</h2><p>The available tools are kept separate from the model orchestration code.</p><p>Each tool has its own implementation and schema, while a central function registry determines which functions the model is allowed to call.</p><p>The current tools include:</p><ul><li>Reading directory information</li><li>Reading file contents</li><li>Writing files</li><li>Running Python files</li></ul><p>This separation allows me to add new capabilities without having to rewrite the agent's core execution loop.</p><h2>Keeping AI In Its Sandbox</h2><p>Giving an AI model the ability to manipulate files is useful.</p><p>Giving it the ability to manipulate <i>any file it wants</i> is considerably less useful.</p><p>Every filesystem operation is restricted to a designated working directory.  Paths are resolved and validated before an operation is allowed to proceed, preventing requests from escaping that directory.</p><p>The same validation is applied across the filesystem tools rather than relying on the model to behave correctly.</p><p>The agent also validates function calls and handles errors explicitly, so invalid requests become tool results that the model can respond to rather than crashing the application.</p><h2>Running Code</h2><p>The assistant can also execute Python programs inside its working directory.</p><p>Execution is performed through a subprocess with captured output and a timeout that allows the agent to inspect the result without allowing a runaway process to indefinitely halt the application until my token limts reset.</p><p>This was one of the more interesting parts of the project because it moved the agent beyond simply manipulating text files and into actually interacting with a running program.</p><p><img src="/games4brains/images/ai-overview.png" alt="AI assistant describing a program's function" /></p><p><img src="/games4brains/images/ai-fixing-calc.png" alt="AI assistant fixing a script bug" /></p><h2>The Good</h2><ul><li>Hands-on experience with Gemini's function-calling API</li><li>Modular tool architecture</li><li>Explicit validation and error handling</li><li>A real application rather than a standalone API experiment</li></ul><h2>The Bad</h2><ul><li>The agent is limited to a small set of tools</li><li>It only operates within its designated working directory</li><li>The model can still misunderstand a request or make a questionable decision</li></ul><h3>The Ugly</h3><p>The agent can write code and then <i>run that code</i>.</p><p>Which is either a handy feature or the start of a terrible idea, depending how carefully you build the walls around it.</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+  <article><div><h1>AI Filesystem Assistant</h1><p><a href="/">< Back Home</a></p><p>I wanted to understand what actually happens when an AI model can do more than just generate text.</p><p>I built a command-line AI assistant that can inspect files, modify them, and execute Python programs using tools exposed through the Gemini API.</p><p>The important part wasn't just giving the model access to these capabilities, it was making sure these capabilities were <b>controlled</b>.</p><h2>Tech Stack</h2><ul><li>Python</li><li>Google Gemini API</li><li>Function / tool calling</li><li>Linux</li><li>Git / GitHub</li></ul><h2>How It Works</h2><p>The assistant uses an iterative tool-calling loop.</p><p>The user provides a request which is sent to Gemini along with a set of available tools.  If Gemini decides that it needs to perform an operation, the application executes the requested function and sends the result back to the model.</p><p>The process continues until the model can provide a <i>final</i> response.</p><pre><code>            User Request
+                |
+                v
+            Gemini API
+                |
+                v
+         --- Tool Call? -- No -----> Response
+       /             ^
+     Yes              \
+      |                \
+      v             Gemini API
+   Validate             ^
+      |                 |
+      v                 |
+Execute tool -----> Tool Result
+</code></pre><h2>Tool Registry</h2><p>The available tools are kept separate from the model orchestration code.</p><p>Each tool has its own implementation and schema, while a central function registry determines which functions the model is allowed to call.</p><p>The current tools include:</p><ul><li>Reading directory information</li><li>Reading file contents</li><li>Writing files</li><li>Running Python files</li></ul><p>This separation allows me to add new capabilities without having to rewrite the agent's core execution loop.</p><h2>Keeping AI In Its Sandbox</h2><p>Giving an AI model the ability to manipulate files is useful.</p><p>Giving it the ability to manipulate <i>any file it wants</i> is considerably less useful.</p><p>Every filesystem operation is restricted to a designated working directory.  Paths are resolved and validated before an operation is allowed to proceed, preventing requests from escaping that directory.</p><p>The same validation is applied across the filesystem tools rather than relying on the model to behave correctly.</p><p>The agent also validates function calls and handles errors explicitly, so invalid requests become tool results that the model can respond to rather than crashing the application.</p><h2>Running Code</h2><p>The assistant can also execute Python programs inside its working directory.</p><p>Execution is performed through a subprocess with captured output and a timeout that allows the agent to inspect the result without allowing a runaway process to indefinitely halt the application until my token limts reset.</p><p>This was one of the more interesting parts of the project because it moved the agent beyond simply manipulating text files and into actually interacting with a running program.</p><p><img src="/images/ai-overview.png" alt="AI assistant describing a program's function" /></p><p><img src="/images/ai-fixing-calc.png" alt="AI assistant fixing a script bug" /></p><h2>The Good</h2><ul><li>Hands-on experience with Gemini's function-calling API</li><li>Modular tool architecture</li><li>Explicit validation and error handling</li><li>A real application rather than a standalone API experiment</li></ul><h2>The Bad</h2><ul><li>The agent is limited to a small set of tools</li><li>It only operates within its designated working directory</li><li>The model can still misunderstand a request or make a questionable decision</li></ul><h3>The Ugly</h3><p>The agent can write code and then <i>run that code</i>.</p><p>Which is either a handy feature or the start of a terrible idea, depending how carefully you build the walls around it.</p><p><a href="/">< Back Home</a></p></div></article>
 
   <footer>
     <div class="wrap">
       <div class="foot-row">
-        <h3>Let's build something that lights up your brain.</h3>
+        <h3><i>Let's build something that lights up your brain.</i></h3>
         <div class="foot-links">
           <a href="#">Email</a>
           <a href="https://github.com/tmcausla" target="_blank">GitHub</a>

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markdown Static Site Generator</title>
-  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link href="/index2.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,23 +16,19 @@
   <div class="wrap">
     <header>
       <div class="navrow">
-        <div class="brand"> <!-- navbar logo & brand, we can play around with what goes here -->
-          <!-- maybe a small brand image, who knows we'll see -->
-          Games 4 Brains
-        </div>
         <nav>
           <ul>
             <li><a href="#work">Work</a></li>
             <li><a href="#writing">Writing</a></li>
-            <li><a href="/games4brains/about">About</a></li>
-            <li><a href="/games4brains/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
   </div>
 
-  <article><div><h1>Markdown Static Site Generator</h1><p><a href="/games4brains/">< Back Home</a></p><p>This is a markdown parsing pipeline that can generate static websites, which I host on GitHub.</p><p>In fact, <i>this project is powering the site you're looking at right now.</i> You can find the project's webpage <a href="https://tmcausla.github.io/Static-site-generator/">here</a>.</p><p>You can also <a href="https://github.com/tmcausla/Static-site-generator">download the repo</a> and try it out yourself!</p><h2>Tech Stack</h2><ul><li>Python</li><li>Linux</li><li>GitHub</li><li>HTML</li><li>CSS</li></ul><p>The content is written out in markdown (.md) files:</p><pre><code>**Bold text** looks like this.
+  <article><div><h1>Markdown Static Site Generator</h1><p><a href="/">< Back Home</a></p><p>I built a lightweight markdown parsing pipeline that can generate static websites, which I host on GitHub.</p><p>I wanted to build a pipeline that handles transformation of data across multiple stages.  My favourite part was figuring out how to take a messy input format and break it down into smaller, manageable stages, and giving each stage a single clear responsibility.</p><p>The project takes markdown (.md) files, parses their structure and formatting, converts them into HTML, and then produces the static pages used to build a website.</p><p>In fact, <i>this project is powering the site you're looking at right now.</i></p><p>You can <a href="https://tmcausla.github.io/Static-site-generator/">view the live project</a>.</p><p>You can also <a href="https://github.com/tmcausla/Static-site-generator">view the source on GitHub</a> and try it out yourself!</p><h2>Tech Stack</h2><ul><li>Python (with unittest library)</li><li>Linux</li><li>Git / GitHub</li><li>HTML</li><li>CSS</li></ul><h2>How It Works</h2><p>The pipeline breaks Markdown processing into several stages rather than trying to convert everything in one pass.</p><p>The Markdown is first divided into blocks such as headings, paragraphs, quotes, lists, and code blocks.  These blocks are then parsed for inline formatting for features such as <b>bold</b>, <i>italics</i>, links, and images.</p><p>The resulting data is represented using TextNode and HTML Node objects before being rendered as HTML.  This separation makes the individual stages easier to test, debug, and build on.</p><p>The content is written out in markdown files like this:</p><pre><code>**Bold text** looks like this.
 Italics are made with _underscores_.
 > It can parse quotes
 > across multiple lines
@@ -41,18 +37,38 @@ Italics are made with _underscores_.
 - Easy to create
 - Easy to read
 - Easy to grow
+- No database required
 ## The Bad
-1. Not terribly robust compared against modern websites
-2. Limited for interactive options
+1. Not nearly as robust compared against modern website framework
+2. Interactive functionality isn't really a thing
 3. Have fun hunting down that one syntax/spelling error
 ### The Ugly
-- The manual parsing pipeline
-</code></pre><h2>Now Let's See It For Real</h2><p><b>Bold text</b> looks like this.</p><p>Italics are made with <i>underscores</i>.</p><blockquote>It can parse quotes<br>across multiple lines<br>- Linus Torvalds, probably</blockquote><h2>The Good</h2><ul><li>Easy to create</li><li>Easy to read</li><li>Easy to grow</li></ul><h2>The Bad</h2><ol><li>Not terribly robust compared against modern websites</li><li>Limited for interactive options</li><li>Have fun hunting down that one syntax/spelling error</li></ol><h3>The Ugly</h3><ul><li>The manual parsing pipeline</li></ul><p><a href="/games4brains/">< Back Home</a></p></div></article>
+The manual parsing pipeline.
+Markdown is simple and straightforward until you ask things like:
+"_What happens if someone puts a list inside a blockquote containing italic text with a link?_"
+At that point, just start writing regex and questioning your life choices.
+</code></pre><p>The HTML created by this file is featured below.</p><h2>The Pipeline</h2><pre><code>Markdown file
+    |
+    v
+Blocks of text
+    |
+    v
+Inline parsing
+    |
+    v
+TextNodes
+    |
+    v
+HTML Nodes
+    |
+    v
+Static HTML
+</code></pre><h2>Now Let's See It For Real</h2><p><b>Bold text</b> looks like this.</p><p>Italics are made with <i>underscores</i>.</p><blockquote>It can parse quotes<br>across multiple lines<br>- Linus Torvalds, probably</blockquote><h2>The Good</h2><ul><li>Easy to create</li><li>Easy to read</li><li>Easy to grow</li><li>No database required</li></ul><h2>The Bad</h2><ol><li>Not nearly as robust compared against modern web frameworks</li><li>Interactive functionality isn't really a thing</li><li>Have fun hunting down that one syntax/spelling error</li></ol><h3>The Ugly</h3><p>The manual parsing pipeline.</p><p>Markdown is simple and straightforward until you ask things like:</p><p>"<i>What happens if someone puts a list inside a blockquote containing italic text with a link?</i>"</p><p>At that point, just start writing regex and questioning your life choices.</p><p><a href="/">< Back Home</a></p></div></article>
 
   <footer>
     <div class="wrap">
       <div class="foot-row">
-        <h3>Let's build something that lights up your brain.</h3>
+        <h3><i>Let's build something that lights up your brain.</i></h3>
         <div class="foot-links">
           <a href="#">Email</a>
           <a href="https://github.com/tmcausla" target="_blank">GitHub</a>

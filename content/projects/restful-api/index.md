@@ -48,13 +48,23 @@ This separation keeps the individual pieces small and makes the application easi
 
 The API provides the standard CRUD operations:
 
-- **GET /pets** - retrieve all pets
-- **GET /pets/:id** - retrieve a specific pet
-- **POST /pets** - create a new pet
-- **PUT /pets/:id** - update an existing pet
-- **DELETE /pets/:id** - delete a pet
+- **GET /pets** - retrieve all pet data
+- **GET /pets/:id** - retrieve data for a specific pet
+- **POST /pets** - create data for a new pet profile
+- **PUT /pets/:id** - update data for an existing pet
+- **DELETE /pets/:id** - delete all profile data for a specific pet
 
 The API is also documented using OpenAPI/Swagger, so the available endpoints and request formats can be explored without having to dig through the source code.
+
+## React Client
+
+The project also includes a React client that consumes the API.
+
+{{ img of React client }}
+
+This gave me an opportunity to work with the API as an actual client rather than treating the backend as an isolated exercise.  The client is responsible for making requests to the API and managing the resulting application state.  
+
+Building both sides of the application also made the relationship between an API's interface and the software consuming it much more apparent.
 
 ## Testing
 
@@ -65,16 +75,6 @@ The tests exercise the API through its HTTP endpoints rather than testing each f
 {{ img of tests }}
 
 The CRUD workflow is tested as a complete sequence, including creating and modifying records and then verifying that they can subsequently be removed.  
-
-## React Client
-
-The project also includes a React client that consumes the API.
-
-{{ img of React client }}
-
-This gave me an opportunity to with the API as an actual client rather than treeating the backend as an isolated exercise.  The client is responsible for making requests to the API and managing the resulting application state.  
-
-Building both sides of the application also made the relationship between an API's interface and the software consuming it much more apparent.
 
 ## API Documentation
 

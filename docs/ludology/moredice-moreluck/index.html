@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Does More Dice = More Luck?</title>
-  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link href="/index2.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,35 +16,31 @@
   <div class="wrap">
     <header>
       <div class="navrow">
-        <div class="brand"> <!-- navbar logo & brand, we can play around with what goes here -->
-          <!-- maybe a small brand image, who knows we'll see -->
-          Games 4 Brains
-        </div>
         <nav>
           <ul>
             <li><a href="#work">Work</a></li>
             <li><a href="#writing">Writing</a></li>
-            <li><a href="/games4brains/about">About</a></li>
-            <li><a href="/games4brains/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
   </div>
 
-  <article><div><h1>Does More Dice = More Luck?</h1><p><a href="/games4brains/">< Back Home</a></p><p>There's little else as satisfying as the clickity clack of dice being cast upon a table.  Dice are most commonly used as a way to inject randomness into its system.  So does it stand to reason that more dice should produce more randomness?</p><p>Actually no.</p><h2>The Situation</h2><p>To understand this we need to think of randomness as the probability spread of possible outcomes in a random event.  If each outcome has an equal probability, such as rolling a single six-sided die (d6), this could be thought of as a more purely random event because each die face 1-6 will appear a <i>mostly</i> equal number of times.</p><p>Once you add a second die to the roll and count the possible outcomes as the combined values on both dice, the probability of each outcome is no longer an equal distribution.  In the case of rolling two d6 (2d6), the outcome with the highest probability is the outcome 7.</p><pre><code>1 + 6
+  <article><div><h1>Does More Dice = More Luck?</h1><p><a href="/">< Back Home</a></p><p>There's little else as satisfying as the clickity clack of dice being cast upon a table.  Dice are most commonly used as a way to inject randomness into its system.  So does it stand to reason that more dice should produce more randomness?</p><p>Actually no.</p><h2>The Situation</h2><p>To understand this we need to think of randomness as the probability spread of possible outcomes in a random event.  If each outcome has an equal probability, such as rolling a single six-sided die (d6), this could be thought of as a more purely random event because each die face 1-6 will appear a <i>mostly</i> equal number of times.</p><p>Once you add a second die to the roll and count the possible outcomes as the combined values on both dice, the probability of each outcome is no longer an equal distribution.  In the case of rolling two d6 (2d6), the outcome with the highest probability is the outcome 7.</p><pre><code>1 + 6
 2 + 5
 3 + 4
 4 + 3
 5 + 2
 6 + 1
 6/36 = 1/6 = 16.667%
-</code></pre><p>As soon as you start rolling more than one die, the averages of outcomes start to center around a single value.  So by rolling <b>more</b> dice, you're causing certain values to be <b>more likely</b> to appear.</p><h2>The Math</h2><p>I made a program that simulated dice rolls, tallied the outcomes for each possible value, and produced a bar chart with the results.</p><p><img src="/games4brains/images/dice-roll-trials.png" alt="bar charts of dice rolling simulations" /></p><h2>The Psychology</h2><p>ABC</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+</code></pre><p>As soon as you start rolling more than one die, the averages of outcomes start to center around a single value.  So by rolling <b>more</b> dice, you're causing certain values to be <b>more likely</b> to appear.</p><h2>The Math</h2><p>I made a program that simulated dice rolls, tallied the outcomes for each possible value, and produced a bar chart with the results.</p><p><img src="/images/dice-roll-trials.png" alt="bar charts of dice rolling simulations" /></p><h2>The Psychology</h2><p>ABC</p><p><a href="/">< Back Home</a></p></div></article>
 
   <footer>
     <div class="wrap">
       <div class="foot-row">
-        <h3>Let's build something that lights up your brain.</h3>
+        <h3><i>Let's build something that lights up your brain.</i></h3>
         <div class="foot-links">
           <a href="#">Email</a>
           <a href="https://github.com/tmcausla" target="_blank">GitHub</a>

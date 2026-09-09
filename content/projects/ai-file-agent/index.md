@@ -20,31 +20,26 @@ The important part wasn't just giving the model access to these capabilities, it
 
 The assistant uses an iterative tool-calling loop.
 
-The user provides a request which is sent to Gemini along with a set of available tools.  If Gemini decides that it eneds to perform an operation, the application executes the requested function and sends the result back to the model.  
+The user provides a request which is sent to Gemini along with a set of available tools.  If Gemini decides that it needs to perform an operation, the application executes the requested function and sends the result back to the model.  
 
 The process continues until the model can provide a _final_ response.  
 
 ```
-User Request
-    |
-    v
-Gemini API
-    |
-    v
-Tool Call?
-  /       \
- No       No
- |         |
- v         v
-Validate   Response
- |
- v
-Execute tool
- |
- v
-Tool result
- |
- +------> Gemini API
+            User Request
+                |
+                v
+            Gemini API
+                |
+                v
+         --- Tool Call? --- No -----> Response
+       /             ^
+     Yes              \
+      |                \
+      v             Gemini API
+   Validate             ^
+      |                 |
+      v                 |
+Execute tool -----> Tool Result
 ```
 
 ## Tool Registry
@@ -64,13 +59,9 @@ This separation allows me to add new capabilities without having to rewrite the 
 
 ## Keeping AI In Its Sandbox
 
-Giving an AI model the ability to manipulate files is useful.  
-
-Giving it the ability to manipulate _any file it wants_ is considerably less useful.
+Giving an AI model the ability to manipulate files is useful.  Giving it the ability to manipulate _any file it wants_ is considerably less useful.
 
 Every filesystem operation is restricted to a designated working directory.  Paths are resolved and validated before an operation is allowed to proceed, preventing requests from escaping that directory.  
-
-The same validation is applied across the filesystem tools rather than relying on the model to behave correctly.  
 
 The agent also validates function calls and handles errors explicitly, so invalid requests become tool results that the model can respond to rather than crashing the application.
 
@@ -78,7 +69,7 @@ The agent also validates function calls and handles errors explicitly, so invali
 
 The assistant can also execute Python programs inside its working directory.  
 
-Execution is performed through a subprocess with captured output and a timeout that allows the agent to inspect the result without allowing a runaway process to indefinitely halt the application until my token limts reset.  
+Execution is performed through a subprocess with captured output and a timeout that allows the agent to inspect the result without allowing a runaway process to indefinitely halt the application until my token limits reset.  
 
 This was one of the more interesting parts of the project because it moved the agent beyond simply manipulating text files and into actually interacting with a running program.  
 

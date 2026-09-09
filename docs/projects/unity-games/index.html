@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unity Games</title>
-  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link href="/index2.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,28 +16,24 @@
   <div class="wrap">
     <header>
       <div class="navrow">
-        <div class="brand"> <!-- navbar logo & brand, we can play around with what goes here -->
-          <!-- maybe a small brand image, who knows we'll see -->
-          Games 4 Brains
-        </div>
         <nav>
           <ul>
             <li><a href="#work">Work</a></li>
             <li><a href="#writing">Writing</a></li>
-            <li><a href="/games4brains/about">About</a></li>
-            <li><a href="/games4brains/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
   </div>
 
-  <article><div><h1>Unity Games</h1><p><a href="/games4brains/">< Back Home</a></p><p>What's up <i>gamertards</i>, it's ya boi.  You know I've been out here cranking through game jams like <b>nuthin</b>.</p><p>Check out my <a href="https://tmcausla.itch.io/">itch.io page</a> where you can download and play what I've made.</p><h2>Tech Stack</h2><ul><li>C#</li><li>Unity</li><li>GitHub</li></ul><h2>Jungle Defense</h2><h3>Concepts and Lessons</h3><ul><li>Let's talk about systems used and lessons learned</li><li>Good way to flesh out the page</li><li>I was able to champion my game design here</li></ul><h3>Screenshots</h3><p>{{ Ooooooo }}</p><p>{{ Aaaaahh }}</p><h2>Season of the Witch</h2><h3>Concepts and Lessons</h3><ul><li>More schoolish but kinda game jammy</li><li>This is pretty good for taking lead and organizing team</li></ul><h3>Screenshots</h3><p>{{ Hey we might even need }}</p><p>{{ Three pics to showcase this beauty }}</p><p>{{ Nom sayin }}</p><h2>Can't Stop</h2><h3>Concepts and Lessons</h3><ul><li>Talk about how I like to make board games -> digital format</li><li>Talk about how my lack of style</li><li>Because I like the functionality too much</li></ul><h3>Screenshots</h3><p>{{ Maybe some janky ass prototype pics }}</p><p>{{ It works for local multiplayer but it's not styled one bit }}</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+  <article><div><h1>Unity Games</h1><p><a href="/">< Back Home</a></p><p>Making games represents a lot of why I like making software: rules need to interact with each other, state needs to be tracked, and seemingly small changes can have a surprisingly big impact.</p><p>Game development has been a useful way to learn software development because it makes state, behaviour, and system interactions impossible to ignore.</p><p>I've worked with classes, inheritance, interfaces, polymorphism, events, LINQ, coroutines, and Unity's component-based architecture while building these projects.</p><p>More importantly, I've learned how quickly a collection of individually simple systems can become complicated once they start interacting.</p><p>That's a problem I enjoy taking on.</p><p>You can find and play my finished projects on <a href="https://tmcausla.itch.io/">itch.io</a>.</p><h2>Tech Stack</h2><ul><li>C#</li><li>Unity</li><li>Git / GitHub</li></ul><h2>Jungle Defense</h2><p>A month-long game-jam project built around defending a jungle settlement from waves of enemies.</p><p>This was the project where I had the opportunity to contribute not just code, but game design. I pushed for a card-based mechanic early in development, which eventually became a central part of the gameplay.</p><h3>Systems & Concepts</h3><p>This project gave me experience working with a larger collection of interconnected gameplay systems:</p><ul><li>Card systems and deck management</li><li>Player state and scoring</li><li>Turn and wave management</li><li>Resource and action point systems</li><li>Game state transiitons</li><li>Unity events</li><li>Object-oriented design</li></ul><p>The card system made particularly good use of inheritance and polymorphism. A common <b>Card</b> base class defines shared behaviour, while individual cards override that behaviour to implement their own effects.</p><p>This allowed us to add different card types without turning the central card-management system into one giant collection of special cases.</p><p>And now I have a modular <b>card.cs</b> file that I look forward to using again in future game projects.</p><h3>Screenshots</h3><p><img src="/images/unity/jungle-defense-title.png" alt="Jungle Defense Title screen" /></p><p><img src="/images/unity/jungle-defense-display.png" alt="Jungle Defense card display" /></p><p><img src="/images/unity/jungle-defense-gameplay2.png" alt="Jungle Defense gameplay" /></p><h2>Season of the Witch</h2><p>Another game jam project, with a greater emphasis on working as part of a team and contributing to an existing codebase.</p><p>We built a single level for a magic-slinging adventure platformer that concluded with a boss fight.</p><h3>Systems & Concepts</h3><p>This project gave me experience implementing new functionality while working within systems that other people had already built.</p><p>That meant spending a fair amount of time understanding unfamiliar code before changing it, then debugging the interactions between my additions and the existing game systems.</p><p>I also took on a strong organizational role within the team, helping to coordinate work and keep the project moving toward a finished game within the game jam's deadline.</p><p>That experience reinforced something I've encountered in software development as well: sometimes the difficult part isn't writing the new code, it's understanding the code that's already there.</p><h3>Screenshots</h3><p><img src="/images/unity/season-of-witch-title.png" alt="Season of the Witch title screen" /></p><p><img src="/images/unity/season-of-witch-gameplay1.png" alt="Season of the Witch gameplay 1" /></p><p><img src="/images/unity/season-of-witch-gameplay2.png" alt="Season of the Witch gameplay 2" /></p><p><img src="/images/unity/season-of-witch-bossfight.png" alt="Season of the Witch boss fight" /></p><h2>Can't Stop</h2><p>A solo project based on one of my favourite board games: Can't Stop.</p><p>I built this one because I wanted to see what it would take to turn a physical board game into a digital system.</p><h2>Systems & Concepts</h2><p>The challenge here was translating rules that are easy to understand when looking at a physical board into explicitly programmed state and behaviour.</p><p>This project includes systems for:</p><ul><li>Player state and scoring</li><li>Dice rolling</li><li>Point tracks / completion</li><li>Turn progression</li><li>Local multiplayer</li></ul><p>The project is intentionally much more focused on functionality than presentation.</p><p>There aren't elaborate menus or particularly impressive visual effects. The important part to me was getting the underlying rules working correctly and making the game playable from start to finish.</p><p>That makes it a useful reminder of why I enjoy programming: <b>I like making the thing work</b>.</p><h3>Screenshots</h3><p>{{ img of Can't Stop gameplay }}</p><p>{{ img of Can't Stop gameplay }}</p><p><a href="/">< Back Home</a></p></div></article>
 
   <footer>
     <div class="wrap">
       <div class="foot-row">
-        <h3>Let's build something that lights up your brain.</h3>
+        <h3><i>Let's build something that lights up your brain.</i></h3>
         <div class="foot-links">
           <a href="#">Email</a>
           <a href="https://github.com/tmcausla" target="_blank">GitHub</a>
