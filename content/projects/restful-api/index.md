@@ -60,8 +60,6 @@ The API is also documented using OpenAPI/Swagger, so the available endpoints and
 
 The project also includes a React client that consumes the API.
 
-{{ img of React client }}
-
 This gave me an opportunity to work with the API as an actual client rather than treating the backend as an isolated exercise.  The client is responsible for making requests to the API and managing the resulting application state.  
 
 Building both sides of the application also made the relationship between an API's interface and the software consuming it much more apparent.
@@ -71,8 +69,6 @@ Building both sides of the application also made the relationship between an API
 I used Supertest to write integration tests against the Express application.
 
 The tests exercise the API through its HTTP endpoints rather than testing each function in isolation.  This allowed me to verify both the returned HTTP status codes and the data returned by the API.
-
-{{ img of tests }}
 
 The CRUD workflow is tested as a complete sequence, including creating and modifying records and then verifying that they can subsequently be removed.  
 

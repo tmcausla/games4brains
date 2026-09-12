@@ -106,6 +106,4 @@ That makes it a useful reminder of why I enjoy programming: **I like making the 
 
 {{ img of Can't Stop gameplay }}
 
-{{ img of Can't Stop gameplay }}
-
 [< Back Home](/)

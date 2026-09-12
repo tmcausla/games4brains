@@ -66,6 +66,4 @@ You're more likely to start another mission when the last one gave you some weak
 
 It's honestly just a well made turn based shooter, so yeah you end up doing another battle or two before you're actually ready to be done.  
 
-### LIST NOT FINAL
-
 [< Back Home](/)
