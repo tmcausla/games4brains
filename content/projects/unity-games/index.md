@@ -84,7 +84,7 @@ A solo project based on one of my favourite board games: Can't Stop.
 
 I built this one because I wanted to see what it would take to turn a physical board game into a digital system.
 
-## Systems & Concepts
+### Systems & Concepts
 
 The challenge here was translating rules that are easy to understand when looking at a physical board into explicitly programmed state and behaviour.
 

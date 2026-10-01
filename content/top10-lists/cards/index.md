@@ -28,8 +28,8 @@ Balatro has a colourful cast of Jokers that forges a strong identity for itself 
 
 A game within a game that evolves into three other games before it gains sentience and deletes itself.  Honestly a pretty tame premise for what you’d expect a Daniel Mullins production to be.  It starts with you playing a gothic animalistic card game where you have to consume your own animals to play the really strong ones.  After a few battles the dungeon master tells you to stand up and suddenly the game zooms out and you’re trapped in a small cabin being forced to play this game over and over to earn your freedom.  
 
-There’s puzzles hidden around the cabin and the animals on your cards will sometimes provide clues as to what’s really going on.  The options for creating cards really encourage you to break the game through splicing, ritual sacrifice, and sometimes _pulling teeth_ to swing the tide of the game.  
-  
+There’s puzzles hidden around the cabin and the animals on your cards will sometimes provide clues as to what’s really going on.  The options for creating cards really encourage you to break the game through splicing, ritual sacrifice, and sometimes _pulling teeth_ to swing the tide of the game.
+
 ## Baten Kaitos
 
 ![Baten Kaitos](/images/game-capsules/baten-kaitos.jpg)
