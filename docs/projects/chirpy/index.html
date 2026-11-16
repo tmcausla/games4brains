@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chirpy Authentication</title>
+  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header>
+      <div class="navrow">
+        <nav>
+          <ul>
+            <li><a href="/games4brains/about">About</a></li>
+            <li><a href="/games4brains/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <article><div><h1>Chirpy Authentication</h1><p><a href="/games4brains/">< Back Home</a></p><p>Chirpy is a RESTful API backend for a Twitter-inspired microblogging platform, built with Go and PostgreSQL. Users can register accounts, authenticate, publish short messages (chirps), and manage their content through a JSON API.</p><p>This project strengthened my understanding of backend security and the responsibilities involved in building APIs that handle user accounts and protected resources.</p><p>You can <a href="https://github.com/tmcausla/chirpy">view the source on GitHub</a>.</p><h2>Tech Stack</h2><ul><li>Go</li><li>PostgreSQL</li><li>sqlc</li><li>Goose</li><li>JWT</li><li>Argon2id</li><li>HTTP / JSON</li></ul><h2>How It Works</h2><p>Chirpy exposes a REST API that handles user registration, authentication, and chirp management.</p><p>Users register with an email address and password. Passwords are hashed using Argon2id before being stored, and successful authentication provides the client with access and refresh tokens.</p><p>Protected endpoints require valid authentication credentials. The server validates incoming tokens and uses the authenticated user's identity to determine whether they are authorized to perform a requested action.</p><p>The application supports several core workflows:</p><ul><li><b>User registration:</b> Create accounts with securely hashed passwords.</li><li><b>Authentication:</b> Verify credentials and issue JWT access and refresh tokens.</li><li><b>Token management:</b> Refresh expired access tokens and revoke refresh tokens.</li><li><b>Chirp management:</b> Create, retrieve, and delete short messages.</li><li><b>User management:</b> Update account information through authenticated requests.</li><li><b>Premium membership:</b> Process authenticated webhook events to upgrade users to Chirpy Red.</li></ul><h2>Authentication and Security</h2><p>Authentication and authorization are central to Chirpy's design.</p><p>The application uses JWTs to manage authenticated sessions, with separate access and refresh tokens serving different purposes.</p><ul><li><b>Access tokens:</b> Short-lived tokens used to authenticate requests to protected endpoints.</li><li><b>Refresh tokens:</b> Longer-lived tokens used to obtain new access tokens without requiring users to log in again.</li><li><b>Token revocation:</b> Refresh tokens can be revoked, preventing them from being used to obtain new access tokens.</li></ul><p>Passwords are hashed using Argon2id rather than stored in plaintext.</p><p>Authorization checks ensure that authenticated users can only perform permitted operations. For example, users cannot delete chirps belonging to another account.</p><h2>Database Design</h2><p>Chirpy uses PostgreSQL for persistent storage, with Goose managing schema migrations and sqlc generating type-safe Go code from SQL queries.</p><p>The database is organized around three primary entities:</p><ul><li><b>Users:</b> Registered accounts containing user information and hashed passwords.</li><li><b>Chirps:</b> Short messages associated with their authors.</li><li><b>Refresh Tokens:</b> Authentication tokens associated with individual users, including their expiration and revocation status.</li></ul><p>Users have a one-to-many relationship with both chirps and refresh tokens. Each user can create multiple chirps and maintain multiple refresh tokens.</p><h2>Key Features</h2><ul><li><b>Secure password storage:</b> Passwords are hashed using Argon2id.</li><li><b>JWT authentication:</b> Access and refresh tokens manage authenticated sessions.</li><li><b>Token revocation:</b> Refresh tokens can be invalidated.</li><li><b>Authorization:</b> Ownership checks prevent users from modifying other users' content.</li><li><b>Input validation:</b> Chirps are limited to 140 characters and undergo profanity filtering.</li><li><b>Webhook integration:</b> Authenticated Polka webhook events support Chirpy Red membership upgrades.</li><li><b>HTTP middleware:</b> Request handling includes logging and server metrics.</li></ul><h2>What I Learned</h2><p>Chirpy gave me practical experience implementing authentication and authorization in a Go application.</p><p>Some of the concepts I explored include:</p><ul><li>Designing RESTful APIs and handling HTTP requests.</li><li>Implementing JWT authentication and token lifecycles.</li><li>Secure password hashing with Argon2id.</li><li>Separating authentication from authorization.</li><li>Implementing middleware for shared request-handling functionality.</li><li>Integrating external services through authenticated webhooks.</li><li>Managing relational data with PostgreSQL and sqlc.</li></ul><p><a href="/games4brains/">< Back Home</a></p></div></article>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <h3><i>Let's build something that lights up your brain.</i></h3>
+        <div class="foot-links">
+          <a href="#">Email</a>
+          <a href="https://github.com/tmcausla" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taylor-mcausland/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

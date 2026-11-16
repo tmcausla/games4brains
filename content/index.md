@@ -6,8 +6,10 @@
 
 ## Software Portfolio
 
+- [Reel Time](/projects/reel-time)
+- [Gator RSS Feed Ingestion](/projects/gator)
+- [Chirpy Authentication](/projects/chirpy)
 - [Markdown Static Site Generator](/projects/static-site-generator)
-- [RESTful API Service](/projects/restful-api)
 - [AI Filesystem Assistant](/projects/ai-file-agent)
 - [Unity Games](/projects/unity-games)
 

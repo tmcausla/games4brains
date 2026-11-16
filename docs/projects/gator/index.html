@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gator RSS Feed Ingestion</title>
+  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header>
+      <div class="navrow">
+        <nav>
+          <ul>
+            <li><a href="/games4brains/about">About</a></li>
+            <li><a href="/games4brains/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <article><div><h1>Gator RSS Feed Ingestion</h1><p><a href="/games4brains/">< Back Home</a></p><p>Gator is a command-line RSS feed aggregator built with Go and PostgreSQL. It allows users to register accounts, subscribe to RSS feeds, periodically collect articles, and browse aggregated content from their followed feeds.</p><p>The project provided an opportunity to work with Go's concurrency features, external data sources, and relational database management.</p><p>You can <a href="https://github.com/tmcausla/gatoraggregator">view the source on GitHub</a>.</p><h2>Tech Stack</h2><ul><li>Go</li><li>PostgreSQL</li><li>sqlc</li><li>Goose</li><li>RSS / XML</li><li>HTTP</li></ul><h2>How It Works</h2><p>Gator periodically retrieves content from registered RSS feeds and stores new posts in a PostgreSQL database.</p><p>Users can register accounts, add feeds to the aggregator, and subscribe to feeds added by other users. A background aggregation process continuously retrieves posts from these feeds at a configurable interval.</p><p>The aggregation process follows a straightforward workflow:</p><ol><li>Retrieve registered RSS feeds from the database.</li><li>Make HTTP requests to fetch their latest content.</li><li>Parse the XML responses into structured Go data.</li><li>Validate and process the retrieved posts.</li><li>Store new posts in PostgreSQL, avoiding duplicate entries.</li></ol><p>Users can then browse recently collected posts from the feeds they follow.</p><h2>Database Design</h2><p>Gator uses PostgreSQL to manage users, RSS feeds, subscriptions, and collected posts.</p><p>The database is organized around three primary relationships:</p><ul><li><b>Users and Feeds:</b> Users can follow multiple feeds, and individual feeds can be followed by multiple users. This many-to-many relationship is managed through a junction table.</li><li><b>Feeds and Posts:</b> Each feed can contain multiple posts, with every post associated with its originating feed.</li><li><b>Users and Subscriptions:</b> Users can manage their own feed subscriptions independently of other users.</li></ul><p>Database migrations are managed with Goose, while sqlc generates type-safe Go code from SQL queries.</p><h2>Key Features</h2><ul><li><b>Multi-user support:</b> Users can register accounts and maintain independent feed subscriptions.</li><li><b>Feed management:</b> Add RSS feeds, follow existing feeds, and manage subscriptions.</li><li><b>Automated aggregation:</b> Continuously retrieve content from registered feeds at a configurable interval.</li><li><b>XML parsing:</b> Process RSS responses and convert external content into structured data.</li><li><b>Persistent storage:</b> Store feeds and posts in PostgreSQL, preventing duplicate entries.</li><li><b>Post browsing:</b> Retrieve recently collected posts from feeds followed by the current user.</li></ul><h2>What I Learned</h2><p>Gator gave me practical experience building a backend application that consumes and processes data from external sources.</p><p>Some of the concepts I explored include:</p><ul><li>Making HTTP requests and working with external APIs.</li><li>Parsing XML and handling inconsistent external data.</li><li>Using Go's concurrency features to manage background processing.</li><li>Designing relational database schemas and many-to-many relationships.</li><li>Generating type-safe database access code with sqlc.</li><li>Managing database schema changes through migrations.</li></ul><p>This project was an important step in developing my backend skills, particularly in working with external data sources and building applications that process information asynchronously.</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <h3><i>Let's build something that lights up your brain.</i></h3>
+        <div class="foot-links">
+          <a href="#">Email</a>
+          <a href="https://github.com/tmcausla" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taylor-mcausland/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

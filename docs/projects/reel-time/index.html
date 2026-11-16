@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reel Time</title>
+  <link href="/games4brains/index2.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header>
+      <div class="navrow">
+        <nav>
+          <ul>
+            <li><a href="/games4brains/about">About</a></li>
+            <li><a href="/games4brains/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <article><div><h1>Reel Time</h1><p><a href="/games4brains/">< Back Home</a></p><p><i>Every film has its place in time.</i></p><p>I built Reel Time to make it easier to compare the release histories of different movie franchises on a shared timeline.</p><p>My girlfriend and I were watching through the Halloween franchise before moving on to Friday the 13th. We started wondering how the two franchises' release histories compared, and looking up individual movies was becoming tedious. That gave me the idea for Reel Time.</p><p>The application lets users select two movie franchises and explore their release chronology side by side, including crossover films that belong to both franchises.</p><p>You can <a href="https://github.com/tmcausla/reel-time">view the source on GitHub</a>.</p><p><img src="/games4brains/images/reeltime-image2.png" alt="Reel Time screenshot" /></p><p><img src="/games4brains/images/reeltime-image1.png" alt="Reel Time screenshot" /></p><h2>Tech Stack</h2><ul><li>Go</li><li>JavaScript</li><li>PostgreSQL</li><li>HTML / CSS</li><li>Git / GitHub</li></ul><h2>How It Works</h2><p>Reel Time uses a Go backend to serve both the frontend and the API endpoints responsible for retrieving movie and franchise data.</p><p>The frontend provides two franchise selectors and a shared timeline that displays the selected movies in chronological order.</p><p>The application follows a straightforward request cycle:</p><ol><li>The user selects two movie franchises.</li><li>The frontend requests the associated movie data from the Go API.</li><li>The backend queries PostgreSQL for matching movies.</li><li>The API returns the results, including each movie's associated franchises.</li><li>The frontend renders the movies on the shared timeline.</li></ol><p>This separation keeps the frontend responsible for presentation while the backend handles data retrieval and database interaction.</p><h2>Database Design</h2><p>One of the more interesting aspects of this project was designing the database to accommodate crossover films.</p><p>Movies and franchises have a many-to-many relationship: a franchise contains multiple movies, and a movie can belong to multiple franchises.</p><p>Rather than duplicating crossover films, Reel Time uses a junction table (<b>movie_franchises</b>) to associate movies with every franchise they belong to.</p><p>This allows the API to retrieve movies across multiple franchise selections without introducing duplicate records.</p><h2>API</h2><p>The Go backend exposes two primary endpoints:</p><pre><code>Method   Endpoint                        Description
+ GET     /api/franchises                 Retrieves available movie franchises
+ GET     /api/movies?franchises=Alien    Retrieves movies associated with a selected franchise
+</code></pre><p>The movies endpoint accepts multiple <code>franchises</code> query parameters, allowing the frontend to retrieve movies belonging to either selected franchise, including crossover films.</p><p>For example:</p><pre><code>GET /api/movies?franchises=Alien&franchises=Predator
+</code></pre><h2>What I Learned</h2><p>Reel Time gave me an opportunity to move beyond command-line applications and build something with Go that people could interact with through a browser.</p><p>Some of the concepts I explored along the way include:</p><ul><li>Building a REST API with Go.</li><li>Integrating PostgreSQL using <b>pgx</b>.</li><li>Designing relational database schemas and many-to-many relationships.</li><li>Separating frontend presentation from backend data access.</li><li>Serving static frontend assets through a Go HTTP server.</li></ul><p>More than anything, this project gave me the opportunity to take an idea from conception through database design, backend implementation, and frontend development.</p><p><a href="/games4brains/">< Back Home</a></p></div></article>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <h3><i>Let's build something that lights up your brain.</i></h3>
+        <div class="foot-links">
+          <a href="#">Email</a>
+          <a href="https://github.com/tmcausla" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taylor-mcausland/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
